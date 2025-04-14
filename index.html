@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>T. Gagan Satsangi | Game Designer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --bg: #0b0c10;
-      --fg: #c5c6c7;
-      --accent: #66fcf1;
-      --highlight: #45a29e;
-      --font: 'Rubik', sans-serif;
+      --bg: #0e0e14;
+      --fg: #f5f5f5;
+      --accent: #00ffe7;
+      --highlight: #ff206e;
+      --font: 'Orbitron', sans-serif;
+    }
+
+    [data-theme="light"] {
+      --bg: #f5f5f5;
+      --fg: #1e1e1e;
+      --accent: #0088ff;
+      --highlight: #e60073;
     }
 
     * {
@@ -21,17 +29,30 @@
     }
 
     body {
-      background-color: var(--bg);
+      background: var(--bg) url('https://images.unsplash.com/photo-1612197526234-7ecaf71726d3?auto=format&fit=crop&w=1440&q=80') no-repeat center center fixed;
+      background-size: cover;
       color: var(--fg);
       font-family: var(--font);
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--accent);
+      cursor: pointer;
+      z-index: 1000;
     }
 
     header {
       text-align: center;
-      padding: 100px 20px 40px;
-      background: linear-gradient(145deg, #1f2833, #0b0c10);
-      animation: fadeIn 1s ease-out forwards;
+      padding: 100px 20px 50px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.4));
     }
 
     header h1 {
@@ -41,25 +62,26 @@
 
     header p {
       font-size: 1.2rem;
-      color: var(--highlight);
+      color: var(--fg);
       margin-top: 10px;
     }
 
     nav {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
-      padding: 20px;
-      background-color: #1f2833;
+      gap: 20px;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.8);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 999;
     }
 
     nav a {
-      text-decoration: none;
       color: var(--fg);
-      font-weight: 600;
+      text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s;
     }
 
@@ -71,21 +93,23 @@
       padding: 60px 20px;
       max-width: 960px;
       margin: auto;
-      animation: fadeInUp 1s ease forwards;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 10px;
+      margin-top: 40px;
     }
 
     h2 {
       font-size: 2rem;
       color: var(--accent);
       margin-bottom: 20px;
-      border-left: 4px solid var(--highlight);
+      border-left: 5px solid var(--highlight);
       padding-left: 15px;
     }
 
     .intro p {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #ddd;
     }
 
     .grid {
@@ -96,15 +120,16 @@
     }
 
     .card {
-      background-color: #1f2833;
+      background: rgba(0, 0, 0, 0.7);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       border-left: 4px solid var(--highlight);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
     }
 
     .card h3 {
@@ -113,8 +138,8 @@
     }
 
     .card p {
-      color: #bbb;
-      font-size: 0.95rem;
+      color: #ddd;
+      font-size: 1rem;
       line-height: 1.6;
     }
 
@@ -127,29 +152,28 @@
       margin: 10px;
       color: var(--accent);
       text-decoration: none;
+      font-weight: 600;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px;
       font-size: 0.9rem;
-      color: #777;
-      border-top: 1px solid #333;
-      background: #0b0c10;
+      color: #aaa;
+      background: rgba(0, 0, 0, 0.8);
+      margin-top: 40px;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(-30px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes fadeInUp {
-      from {opacity: 0; transform: translateY(50px);}
-      to {opacity: 1; transform: translateY(0);}
+    @media screen and (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">
+    <i id="theme-icon" class="fas fa-moon"></i>
+  </button>
   <header>
     <h1>T. Gagan Satsangi</h1>
     <p>Game Designer & Multimedia Artist</p>
@@ -165,23 +189,23 @@
 
   <section id="intro" class="intro">
     <h2>Introduction</h2>
-    <p>I’m Gagan, a game designer passionate about immersive gameplay, futuristic environments, and storytelling through interactive media. Currently studying Animation, VFX & Gaming, I specialize in crafting user-centric digital experiences powered by game engines, AI, and creative tools. My portfolio showcases a blend of strategy games, NFT art, and branding design.</p>
+    <p>I’m Gagan, a game designer passionate about immersive gameplay, futuristic environments, and storytelling through interactive media. I specialize in crafting user-centric digital experiences powered by game engines, AI, and creative tools. My portfolio showcases a blend of survival strategy games, NFT art, and brand building.</p>
   </section>
 
   <section id="projects">
     <h2>Featured Projects</h2>
     <div class="grid">
       <div class="card">
-        <h3>3D Survival Strategy Game (Ongoing)</h3>
-        <p>Developing a post-apocalyptic game using Unreal Engine 5 with unique mechanics and character-based storytelling. Focus on environmental design, UI/UX, and system balancing.</p>
+        <h3>3D Survival Strategy Game</h3>
+        <p>Post-apocalyptic game built with Unreal Engine 5, focusing on storytelling, visual design, and strategic gameplay loops.</p>
       </div>
       <div class="card">
-        <h3>NucleX Branding & Merch</h3>
-        <p>Conceptualized and designed streetwear merchandise under the NucleX brand including technical packs and visual identity.</p>
+        <h3>NucleX Merchandise</h3>
+        <p>Brand identity and streetwear design, complete with production-ready tech packs and visual marketing assets.</p>
       </div>
       <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>Personal responsive website that highlights my journey, skill set, and interactive projects using clean code and design principles.</p>
+        <h3>Personal Portfolio</h3>
+        <p>This interactive website highlights my career, projects, and skills — built with custom code and futuristic style.</p>
       </div>
     </div>
   </section>
@@ -190,16 +214,16 @@
     <h2>Industry Experience</h2>
     <div class="grid">
       <div class="card">
-        <h3>Graphic Designer – NucleX</h3>
-        <p>Designed visuals for apparel, handled production packs, and drove creative direction for branded assets.</p>
+        <h3>NucleX Clothing</h3>
+        <p>Graphic Designer responsible for designing unique apparel visuals, logos, and manufacturing files.</p>
       </div>
       <div class="card">
-        <h3>NFT Artist – Almighty Crafters</h3>
-        <p>Created themed collections and digital assets, contributing to NFT concept evolution and project launches.</p>
+        <h3>Almighty Crafters</h3>
+        <p>NFT Artist who conceptualized, illustrated, and published multiple NFT collections and digital characters.</p>
       </div>
       <div class="card">
-        <h3>Intern – TPM Creates</h3>
-        <p>Designed social creatives and supported campaign visuals for increased brand presence on digital platforms.</p>
+        <h3>TPM Creates</h3>
+        <p>Design intern creating social media visuals and refining brand aesthetics during a focused design sprint.</p>
       </div>
     </div>
   </section>
@@ -207,23 +231,41 @@
   <section id="skills">
     <h2>Tools & Technologies</h2>
     <div class="grid">
-      <div class="card"><h3>Game Development</h3><p>Unreal Engine 5, Unity, Blueprint Systems</p></div>
-      <div class="card"><h3>Design & Visuals</h3><p>Photoshop, Illustrator, After Effects, Canva</p></div>
-      <div class="card"><h3>AI Integration</h3><p>ChatGPT, Leonardo AI, Generative AI for concepts and automation</p></div>
+      <div class="card"><h3>Game Engines</h3><p>Unreal Engine 5, Unity, Blueprint Systems</p></div>
+      <div class="card"><h3>Creative Tools</h3><p>Photoshop, Illustrator, After Effects, Canva</p></div>
+      <div class="card"><h3>AI Workflow</h3><p>ChatGPT, Leonardo AI, Generative AI</p></div>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
-    <p>Let’s create something amazing together.</p>
+    <p>Available for freelance, collaborations, and game design roles.</p>
     <a href="mailto:tgagansatsangi@gmail.com">tgagansatsangi@gmail.com</a>
     <a href="tel:+919675890266">+91 9675890266</a>
-    <a href="https://www.behance.net/gagansatsangi" target="_blank">View My Work</a>
-    <a href="https://tgagansatsangi.com" target="_blank">Visit Website</a>
+    <a href="https://www.behance.net/gagansatsangi" target="_blank">View Portfolio</a>
+    <a href="https://tgagansatsangi.com" target="_blank">tgagansatsangi.com</a>
   </section>
 
   <footer>
     &copy; 2025 T. Gagan Satsangi — All rights reserved.
   </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const icon = document.getElementById('theme-icon');
+      const isLight = html.getAttribute('data-theme') === 'light';
+
+      if (isLight) {
+        html.removeAttribute('data-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+      } else {
+        html.setAttribute('data-theme', 'light');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+      }
+    }
+  </script>
 </body>
 </html>
