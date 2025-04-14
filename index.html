@@ -3,77 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T. Gagan Satsangi | Game Designer & Multimedia Artist</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>T. Gagan Satsangi | Game Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0b0c10;
+      --fg: #c5c6c7;
+      --accent: #66fcf1;
+      --highlight: #45a29e;
+      --font: 'Rubik', sans-serif;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0d0d0d;
-      color: #f2f2f2;
-      line-height: 1.7;
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: var(--font);
+      scroll-behavior: smooth;
     }
+
     header {
-      padding: 40px 20px;
       text-align: center;
-      background-color: #111;
-      border-bottom: 1px solid #333;
+      padding: 100px 20px 40px;
+      background: linear-gradient(145deg, #1f2833, #0b0c10);
+      animation: fadeIn 1s ease-out forwards;
     }
+
     header h1 {
-      font-size: 2.5rem;
-      color: #00ffe1;
+      font-size: 3rem;
+      color: var(--accent);
     }
+
     header p {
+      font-size: 1.2rem;
+      color: var(--highlight);
       margin-top: 10px;
-      font-size: 1.1rem;
-      color: #ccc;
     }
+
     nav {
-      text-align: center;
-      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background-color: #1f2833;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
+
     nav a {
-      color: #00ffe1;
       text-decoration: none;
-      margin: 0 15px;
+      color: var(--fg);
       font-weight: 600;
+      transition: color 0.3s;
     }
+
     nav a:hover {
-      text-decoration: underline;
+      color: var(--accent);
     }
+
     section {
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
+      padding: 60px 20px;
+      max-width: 960px;
+      margin: auto;
+      animation: fadeInUp 1s ease forwards;
     }
+
     h2 {
-      color: #00ffe1;
+      font-size: 2rem;
+      color: var(--accent);
       margin-bottom: 20px;
-      font-size: 1.6rem;
+      border-left: 4px solid var(--highlight);
+      padding-left: 15px;
     }
-    ul li {
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background-color: #1f2833;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid var(--highlight);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      color: var(--accent);
       margin-bottom: 10px;
     }
+
+    .card p {
+      color: #bbb;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
     .contact a {
-      display: block;
-      color: #00ffe1;
-      margin-bottom: 8px;
+      display: inline-block;
+      margin: 10px;
+      color: var(--accent);
       text-decoration: none;
     }
-    .contact a:hover {
-      text-decoration: underline;
-    }
+
     footer {
-      background-color: #111;
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
       border-top: 1px solid #333;
+      background: #0b0c10;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -81,67 +153,77 @@
   <header>
     <h1>T. Gagan Satsangi</h1>
     <p>Game Designer & Multimedia Artist</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I am a passionate game designer and multimedia artist currently pursuing my B.Sc in Animation, VFX & Gaming at Chandigarh University. My focus is on creating immersive gameplay experiences, concept development, and combining visual storytelling with technology. From game environments to branding visuals, I aim to deliver impactful and professional results.</p>
-  </section>
+  <nav>
+    <a href="#intro">Intro</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Game Design: Unreal Engine 5, Unity</li>
-      <li>Visual Design: Adobe Illustrator, Photoshop, Canva</li>
-      <li>Motion Graphics: Adobe After Effects</li>
-      <li>AI-Enhanced Workflows: ChatGPT, Leonardo AI, Generative AI</li>
-    </ul>
-  </section>
-
-  <section id="experience">
-    <h2>Experience</h2>
-    <ul>
-      <li><strong>Graphic Designer, NucleX Clothing (Present)</strong><br>Developed apparel concepts, branding visuals, and manufacturing-ready design packs.</li>
-      <li><strong>NFT Artist, Almighty Crafters (Jan 2023 – Jun 2023)</strong><br>Ideated and illustrated NFT artwork collections, contributing to the visual storytelling of the brand.</li>
-      <li><strong>Graphic Design Intern, TPM Creates (Sep 2024 – Oct 2024)</strong><br>Produced engaging social media content and layouts to increase brand reach.</li>
-    </ul>
+  <section id="intro" class="intro">
+    <h2>Introduction</h2>
+    <p>I’m Gagan, a game designer passionate about immersive gameplay, futuristic environments, and storytelling through interactive media. Currently studying Animation, VFX & Gaming, I specialize in crafting user-centric digital experiences powered by game engines, AI, and creative tools. My portfolio showcases a blend of strategy games, NFT art, and branding design.</p>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>3D Game Development (Ongoing)</strong><br>Post-apocalyptic strategy game using Unreal Engine 5 with immersive storytelling and gameplay systems.</li>
-      <li><strong>Portfolio Website</strong><br>Built and designed a professional digital presence showcasing personal work and capabilities.</li>
-    </ul>
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>3D Survival Strategy Game (Ongoing)</h3>
+        <p>Developing a post-apocalyptic game using Unreal Engine 5 with unique mechanics and character-based storytelling. Focus on environmental design, UI/UX, and system balancing.</p>
+      </div>
+      <div class="card">
+        <h3>NucleX Branding & Merch</h3>
+        <p>Conceptualized and designed streetwear merchandise under the NucleX brand including technical packs and visual identity.</p>
+      </div>
+      <div class="card">
+        <h3>Portfolio Website</h3>
+        <p>Personal responsive website that highlights my journey, skill set, and interactive projects using clean code and design principles.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Chandigarh University</strong> – B.Sc in Animation, VFX & Gaming (Expected 2025)</li>
-      <li><strong>Arena Animation</strong> – Broadcast Design (2020–2022) – GPA: 7.4</li>
-      <li><strong>Radhasoami Educational Institute</strong> – Intermediate (MPC) – GPA: 7.7</li>
-    </ul>
+  <section id="experience">
+    <h2>Industry Experience</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Graphic Designer – NucleX</h3>
+        <p>Designed visuals for apparel, handled production packs, and drove creative direction for branded assets.</p>
+      </div>
+      <div class="card">
+        <h3>NFT Artist – Almighty Crafters</h3>
+        <p>Created themed collections and digital assets, contributing to NFT concept evolution and project launches.</p>
+      </div>
+      <div class="card">
+        <h3>Intern – TPM Creates</h3>
+        <p>Designed social creatives and supported campaign visuals for increased brand presence on digital platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Tools & Technologies</h2>
+    <div class="grid">
+      <div class="card"><h3>Game Development</h3><p>Unreal Engine 5, Unity, Blueprint Systems</p></div>
+      <div class="card"><h3>Design & Visuals</h3><p>Photoshop, Illustrator, After Effects, Canva</p></div>
+      <div class="card"><h3>AI Integration</h3><p>ChatGPT, Leonardo AI, Generative AI for concepts and automation</p></div>
+    </div>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
+    <p>Let’s create something amazing together.</p>
     <a href="mailto:tgagansatsangi@gmail.com">tgagansatsangi@gmail.com</a>
     <a href="tel:+919675890266">+91 9675890266</a>
-    <a href="https://www.behance.net/gagansatsangi" target="_blank">Behance Portfolio</a>
-    <a href="https://tgagansatsangi.com" target="_blank">tgagansatsangi.com</a>
+    <a href="https://www.behance.net/gagansatsangi" target="_blank">View My Work</a>
+    <a href="https://tgagansatsangi.com" target="_blank">Visit Website</a>
   </section>
 
   <footer>
-    &copy; 2025 T. Gagan Satsangi. All rights reserved.
+    &copy; 2025 T. Gagan Satsangi — All rights reserved.
   </footer>
 </body>
 </html>
