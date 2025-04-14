@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T. Gagan Satsangi | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: radial-gradient(circle at top, #0f0f0f, #000000);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    header {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #0ff;
+      animation: fadeInDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #0ff;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s;
+    }
+    nav a:hover {
+      border-color: #0ff;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeInUp 1.5s ease;
+    }
+    h2 {
+      border-left: 4px solid #0ff;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: #0ff;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li::before {
+      content: "▶ ";
+      color: #0ff;
+    }
+    .contact {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-top: 2px solid #0ff;
+    }
+    .contact a {
+      color: #0ff;
+      text-decoration: none;
+      display: block;
+      margin: 5px 0;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>T. Gagan Satsangi</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m Gagan — a creatively driven game design student with a solid foundation in graphic design, game development, and digital art. I’m building my dream career in the gaming and digital content industry.</p>
+    <ul>
+      <li>B.Sc in Animation, VFX & Gaming at Chandigarh University</li>
+      <li>3D game development in Unreal Engine 5</li>
+      <li>Founder & designer for NucleX Clothing</li>
+      <li>NFT Artist at Almighty Crafters</li>
+      <li>Exploring AI in creative work</li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Adobe Illustrator, Photoshop, Canva</li>
+      <li>Adobe After Effects (Video Editing)</li>
+      <li>Unreal Engine 5, Unity</li>
+      <li>ChatGPT, Leonardo AI, Generative AI</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>NucleX Clothing – Graphic Designer</strong>: T-shirt layouts, product packs</li>
+      <li><strong>Almighty Crafters – NFT Artist</strong>: Digital asset design and concept</li>
+      <li><strong>TPM Creates – Graphic Design Intern</strong>: Social media post design</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li><strong>3D Game Development (Ongoing)</strong> – Post-apocalyptic survival strategy game</li>
+      <li><strong>Portfolio Website</strong> – Personal site showcasing work (tgagansatsangi.com)</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>Chandigarh University</strong> – B.Sc in Animation, VFX & Gaming (2021–2025)</li>
+      <li><strong>Arena Animation</strong> – Broadcast Design (2020–2022), GPA: 7.4</li>
+      <li><strong>Radhasoami Educational Institute</strong> – Intermediate in MPC (2020–2022), GPA: 7.7</li>
+    </ul>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact</h2>
+    <a href="mailto:tgagansatsangi@gmail.com">tgagansatsangi@gmail.com</a>
+    <a href="tel:+919675890266">+91 9675890266</a>
+    <a href="https://www.behance.net/gagansatsangi" target="_blank">Portfolio – Behance</a>
+    <a href="https://tgagansatsangi.com" target="_blank">Website – tgagansatsangi.com</a>
+  </section>
+</body>
+</html>
